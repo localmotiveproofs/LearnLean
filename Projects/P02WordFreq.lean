@@ -71,21 +71,10 @@ deriving Repr, BEq
 
 /-- Parse command-line flags. Unknown flags, missing or non-numeric values → `.error msg`.
 Flags may appear anywhere; non-flag arguments are files, in order. -/
-def parseArgs (args : List String) : Except String Config :=
-  let rec aux args (config: Config) : Except String Config := do
-    match args with
-    | [] => pure config
-    | "--top" :: n_str :: args' => aux args' {config with top := n_str.toNat! }
-    | "--min-length" :: k_str :: args' => aux args' {config with minLength := k_str.toNat!}
-    | "--ignore-case" :: args' => aux args' {config with ignoreCase := true}
-    | file :: args' => aux args' {config with files := file :: config.files}
-  aux args {}
+def parseArgs (args : List String) : Except String Config := sorry
 
 /-- Split text into words according to the config (`minLength`, `ignoreCase`). -/
-def tokenize (cfg : Config) (text : String) : List String :=
-  let rec eat cfg pref suff :=
-    match suff with
-    | a :: t => if Char.isAlphanum
+def tokenize (cfg : Config) (text : String) : List String := sorry
 
 def countWords (words : List String) : Std.HashMap String Nat := sorry
 

@@ -1,17 +1,26 @@
 # Learn Lean 4 in 20 projects
 
-A hands-on curriculum for someone who already knows **OCaml, Scala and Rocq**. It skips what
-you already know (ADTs, pattern matching, "what is a dependent type") and spends your time on
-what's *specific to Lean*: its syntax and `do`-notation, typeclass-driven notation, the
-reference-counted runtime, the macro system, programming with dependent types, the tactic
-language, and metaprogramming in Lean itself.
+This is a vibe-coded tutorial aiming for someone familiar with functional programming and
+interactive theorem proving to quickly learn basics of programming using the Lean theorem
+prover.
 
-* **Part I (P01–P10): programming.** Ten real programs: CLIs, a compressor, a ray tracer, a
-  JSON tool, an interpreter, a Sudoku solver. Macros and dependent types are introduced gently along the way.
+The entirety of this project was generated using Claude Opus 5.5. Since we assume basic
+familiarity with functional programming and interactive theorem proving, the projects focus
+on skipping what you already know (ADTs, pattern matching, "what is a dependent type") and 
+instead focuses on teaching what's *specific to Lean*: the Lean syntax and `do`-notation, 
+typeclass-driven notation, the reference-counted runtime, the macro system, 
+programming with dependent types, the tactic language, and metaprogramming in Lean itself.
+
+* **Part I (P01–P10): programming.** The tutorial guides you through construction of ten 
+    real programs: CLIs, a compressor, a ray tracer, a
+    JSON tool, an interpreter, a Sudoku solver. 
+    Macros and dependent types are introduced gently along the way. Claude has defined 
+    the code you need to fill out along the way and all you need to do is write the code.
+    There is also a public suite of tests for each project as well.
 * **Part II (P11–P20): proofs, introduced incrementally.** Each project adds one or two proof
   techniques, and most of them **prove things about code you wrote in Part I**.
 
-Everything uses **core Lean 4.35 + `Std` only (no Mathlib)**, so builds take seconds.
+This project uses **core Lean 4.35 + `Std` only (no Mathlib)**
 
 ---
 
@@ -27,7 +36,7 @@ lake exe wordfreq --top 5 README.md   # executables, once their project is imple
 Open the folder in **VS Code** with the `lean4` extension. The *infoview* panel (goal and type
 at the cursor) is your main tool, so keep it open.
 
-### The loop, per project
+### Working through each project
 1. Open `Projects/PNN….lean`. The header comment is the full brief: why, what you'll learn,
    tasks, hints, and stretch goals.
 2. Replace the `sorry`s, checking as you go with `#eval` / `#check` and the infoview.
@@ -39,7 +48,6 @@ at the cursor) is your main tool, so keep it open.
 > library still has a `sorry` in a top-level *constant*, e.g. `def units : Array … := sorry`.
 > Lean evaluates such constants when the program *starts*, before `main` runs. Finish the library first.
 
-Optional but recommended: `git init` and commit after each project.
 
 ---
 
@@ -90,6 +98,9 @@ Code reuse     P01 ──────────────→ P11 (proofs abo
 
 ## Phrasebook
 
+The following tables are aimed to help someone who has familiarity with Scala / Rocq / OCaml to quickly
+ learn Lean syntax.
+
 **OCaml/Scala → Lean**
 
 | You know | Lean 4 |
@@ -123,9 +134,9 @@ Code reuse     P01 ──────────────→ P11 (proofs abo
 
 ---
 
-## Lean 4.35 gotchas found while building this
+## Some Lean 4.35 gotchas
 
-These all came up while checking the projects. The relevant briefs repeat them where they bite.
+Claude also found some gotchas about Lean 4.35 which all came up while checking the projects. 
 
 * **Strings changed recently.** `String.drop`, `trimAscii`, `split` return `String.Slice` (call
   `.toString`). `String.trim` and `String.mk` are gone or deprecated; use `String.ofList`.
@@ -146,9 +157,9 @@ These all came up while checking the projects. The relevant briefs repeat them w
 
 ---
 
-## How this curriculum was checked
+## Testing your code
 
-* Every starter file compiles (`lake build`), and every executable links.
+* You can use `lake build` to check if your solution compiles.
 * For **every** project, a private reference solution, deliberately *not* included, passes the
   acceptance tests in `Tests/`.
 * **Every theorem statement in P11–P20 has been proved** in Lean 4.35 with core tactics only,
