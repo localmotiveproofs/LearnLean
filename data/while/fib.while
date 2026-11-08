@@ -1,0 +1,6 @@
+a := 0; b := 1; n := 30;
+while n > 0 do {
+  t := a + b; a := b; b := t;
+  n := n - 1
+};
+print a

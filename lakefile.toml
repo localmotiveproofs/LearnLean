@@ -1,0 +1,47 @@
+name = "LearnLean"
+version = "0.1.0"
+defaultTargets = ["Projects"]
+
+[leanOptions]
+# Auto-bound implicits stay on for single letters/greek (α, n, xs…), but a typo like
+# `lenght` becomes an error instead of a silently-bound implicit variable.
+relaxedAutoImplicit = false
+
+# Your work: one module per project. `lake build` builds all of them.
+[[lean_lib]]
+name = "Projects"
+globs = ["Projects.+"]
+
+# Acceptance tests: `lake build Tests.P01Kata` etc. Red until the project is done.
+[[lean_lib]]
+name = "Tests"
+globs = ["Tests.+"]
+
+# Executables: thin `main` wrappers around the project modules. `lake exe <name> …`
+[[lean_exe]]
+name = "wordfreq"     # P02
+root = "Apps.WordFreq"
+
+[[lean_exe]]
+name = "huff"         # P03
+root = "Apps.Huff"
+
+[[lean_exe]]
+name = "raytrace"     # P05
+root = "Apps.RayTrace"
+
+[[lean_exe]]
+name = "jsonq"        # P06
+root = "Apps.JsonQ"
+
+[[lean_exe]]
+name = "while"        # P08
+root = "Apps.While"
+
+[[lean_exe]]
+name = "sudoku"       # P10
+root = "Apps.Sudoku"
+
+[[lean_exe]]
+name = "vgrep"        # P20
+root = "Apps.VGrep"

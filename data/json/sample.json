@@ -1,0 +1,11 @@
+{
+  "title": "Languages I have loved",
+  "updated": "2026-11-02",
+  "languages": [
+    { "name": "OCaml", "since": 2012, "typed": true,  "tags": ["ml", "modules"] },
+    { "name": "Lean",  "since": 2026, "typed": true,  "tags": ["dependent types", "tactics", "macros"] },
+    { "name": "Scala", "since": 2015, "typed": true,  "tags": [] }
+  ],
+  "ratings": { "fun": 9.5, "tooling": 8.25, "mystery": null },
+  "escapes": "tab:\t quote:\" backslash:\\ unicode:é snowman:☃"
+}

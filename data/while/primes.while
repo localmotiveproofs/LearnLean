@@ -1,0 +1,11 @@
+n := 2;
+while n < 100 do {
+  d := 2;
+  isPrime := 1;
+  while d * d <= n && isPrime == 1 do {
+    if n % d == 0 then { isPrime := 0 };
+    d := d + 1
+  };
+  if isPrime == 1 then { print n };
+  n := n + 1
+}
